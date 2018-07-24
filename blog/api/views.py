@@ -17,7 +17,7 @@ class PostCreateView(generics.CreateAPIView):
 
 class PostListView(generics.ListAPIView):
 
-    queryset = Post.objects.prefetch_related('comment_set').all()
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 class PostDetailView(generics.RetrieveAPIView):

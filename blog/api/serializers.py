@@ -16,7 +16,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 
-    comments = CommentSerializer(many=True, read_only=True)
+    comments = CommentSerializer(read_only=True)
 
     class Meta:
         model  = Post
@@ -27,7 +27,6 @@ class PostSerializer(serializers.ModelSerializer):
             'comments',
             'timestamp'
         ]
-        depth = 1
 
     def validate_title(self, value):
         queryset = Post.objects.filter(title=value)
