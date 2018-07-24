@@ -49,7 +49,9 @@ class PostCommentCreateView(generics.CreateAPIView):
             serializer = CommentSerializer(data=data)
             if serializer.is_valid():
                 comment = serializer.save()
-                post.comment_set.add(comment)
-                return Response(post)
+                print(sys.stderr, '----------------')
+                print(sys.stderr, comment)
+                post.comments.add(comment)
+                return Response(serializer.validated_data, status=204)
         except Comment.DoesNotExist:
             return HttpResponse(status=404)

@@ -10,4 +10,4 @@ class Comment(models.Model):
 
     commenter = models.CharField(max_length=120, null=False)
     body      = models.TextField(max_length=120, null=True)
-    post      = models.ForeignKey(Post, null=True, on_delete=models.CASCADE)
+    post      = models.ForeignKey(Post, null=True, on_delete=models.CASCADE, related_name='comments')
