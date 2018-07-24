@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^posts/(?P<pk>\d+)/detail/$', views.PostDetailView.as_view(), name="post_detail"),
     url(r'^posts/(?P<pk>\d+)/update/$', views.PostUpdateView.as_view(), name="post_update"),
     url(r'^posts/(?P<pk>\d+)/delete/$', views.PostDeleteView.as_view(), name="post_delete"),
+    url(r'^posts/(?P<pk>\d+)/comments/create/$', views.PostCommentCreateView.as_view(), name="post_comment_create"),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
